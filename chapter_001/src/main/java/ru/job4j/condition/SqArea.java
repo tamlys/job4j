@@ -7,39 +7,17 @@ package ru.job4j.condition;
  */
 public class SqArea {
     /**
-     * Method height
-     * @param w - w.
+     *
+     * @param p - p.
      * @param k - k.
-     * @return value height.
+     * @return s.
      */
-    public static int height(int w, int k) {
-        return w * k;
-    }
-    /**
-     * Method perimetr
-     * @param w - w.
-     * @param h - h.
-     * @return value perimetr.
-     */
-    public static int perimetr(int w, int h) {
-        return 2 * (w + h);
-    }
-    /**
-     * Method weight
-     * @param h - h.
-     * @param k - k.
-     * @return value weight.
-     */
-    public static int weight(int h, int k) {
-        return h / k;
-    }
-    /**
-     * Method square
-     * @param w - w.
-     * @param h - h.
-     * @return value square.
-     */
-    public static int square(int w, int h) {
-        return w * h;
+    public static int square(int p, int k) {
+        int h, w, s;
+        w = p / (2 + 2 * k);
+        h = w * k;
+        s = w * h;
+        return s;
     }
 }
+
