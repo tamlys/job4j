@@ -12,14 +12,14 @@ import static org.junit.Assert.*;
  */
 public class SqAreaTest {
     /**
-     * value square.
+     * value square, if  p = 4 k = 1 s = 1.
      */
     @Test
     public void p4k1s1() {
         assertThat(SqArea.square(4, 1), is(1));
     }
     /**
-     * value square.
+     * value square, if p = 6 k = 2 s = 2.
      */
     @Test
     public void p6k2s2() {
