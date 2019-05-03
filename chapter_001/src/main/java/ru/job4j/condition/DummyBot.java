@@ -1,4 +1,5 @@
 package ru.job4j.condition;
+
 /**
  * @author Sachenkov Maxin (oqiwhite1996@gmail.com)
  * @version $Id$
@@ -11,7 +12,7 @@ public class DummyBot {
      * @return Ответ.
      */
     public String answer(String question) {
-            String rsl = "Это ставит меня в тупик. Задайте другой вопрос.";
+        String rsl = "Это ставит меня в тупик. Задайте другой вопрос.";
         if ("Привет, Бот.".equals(question)) {
             rsl = "Привет, умник.";
         } else if ("Пока.".equals(question)) {
