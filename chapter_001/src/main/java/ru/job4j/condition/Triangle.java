@@ -3,7 +3,7 @@ package ru.job4j.condition;
 public class Triangle {
 
     /**
-     * SqAreaTest
+     * TriagnleTest
      * @author Sachenkov Maxim(oqiwhite1996@gmail.com)
      * @version $Id$
      * @since 0.1
@@ -35,8 +35,6 @@ public class Triangle {
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        } else {
-            return rsl;
         }
         return rsl;
     }
