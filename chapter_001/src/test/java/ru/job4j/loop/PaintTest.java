@@ -11,6 +11,44 @@ import static org.junit.Assert.*;
  */
 public class PaintTest {
     /**
+     * method whenPyramid4Right
+     * Проверяет построение правой стороны пирамиды высотой 4 строки
+     */
+    @Test
+    public void whenPyramid4Right() {
+        Paint paint = new Paint();
+        String rst = paint.rightTrl(4);
+        assertThat(rst,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("^   ")
+                                .add("^^  ")
+                                .add("^^^ ")
+                                .add("^^^^")
+                                .toString()
+                )
+        );
+    }
+    /**
+     * method whenPyramid4Left
+     * Проверяет построение левой стороны пирамиды высотой 4 строки
+     */
+    @Test
+    public void whenPyramid4Left() {
+        Paint paint = new Paint();
+        String rst = paint.leftTrl(4);
+        assertThat(rst,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("   ^")
+                                .add("  ^^")
+                                .add(" ^^^")
+                                .add("^^^^")
+                                .toString()
+                )
+        );
+    }
+    /**
      * method whenPyramid4
      * Проверяет построение пирамиды высотой 4 строки
      */
