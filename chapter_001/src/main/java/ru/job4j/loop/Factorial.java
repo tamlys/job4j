@@ -11,19 +11,16 @@ public class Factorial {
      * calc вычисляем факториал числа n
      * result окончательный результат
      */
-    int result = 0;
+
     public int calc(int n) {
+        int result = 1;
         if (n > 0) {
-            for (int i = 0; i <= n; i++) {
-                if (i == 0) {
-                    result = 1;
-                    i++;
-                }
+            for (int i = 1; i <= n; i++) {
                 result = result * i;
             }
         }
         if (n == 0) {
-            result = 1;
+            return result;
         }
         return result;
     }
