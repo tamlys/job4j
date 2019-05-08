@@ -37,4 +37,18 @@ public class FindLoopTest {
         int expect = -1;
         assertThat(result, is(expect));
     }
+
+    /**
+     * whenArrayHasMinValue1
+     * Заполняем массив произвольными данными и ищем ячейку массива с минимальным значением 2.
+     */
+    @Test
+    public void whenArrayHasMinValue2() {
+        FindLoop find = new FindLoop();
+        int[] input = new int[]{3, 2, 5};
+        int value = 2;
+        int result = find.indexOf(input, value);
+        int expect = 1;
+        assertThat(result, is(expect));
+    }
 }

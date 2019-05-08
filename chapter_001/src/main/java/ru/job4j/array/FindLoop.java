@@ -22,4 +22,22 @@ public class FindLoop {
         }
         return rst;
     }
+
+    /**
+     * minValue
+     * @param data название массива
+     * @return возвращает индекс ячейки массива с минимальным значением
+     */
+    public int minValue(int[] data) {
+        int minValue = data[0];
+        for (int i = 1; i != data.length; i++) {
+            if (minValue < data[i]) {
+                i++;
+            } else {
+                minValue = data[i];
+            }
+
+        }
+        return minValue;
+    }
 }
