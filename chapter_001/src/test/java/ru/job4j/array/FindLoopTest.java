@@ -51,4 +51,17 @@ public class FindLoopTest {
         int expect = 1;
         assertThat(result, is(expect));
     }
+    /**
+     * whenArrayHas1Then2
+     * Заполняем массив произвольными данными и ищем ячейку массива со значением 1, далее выводим индекс ячейки.
+     */
+    @Test
+    public void whenArrayHas1Then2() {
+        FindLoop find = new FindLoop();
+        int[] input = new int[] {2, 3, 1};
+        int value = 1;
+        int result = find.indexOf(input, value);
+        int expect = 2;
+        assertThat(result, is(expect));
+    }
 }
