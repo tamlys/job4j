@@ -46,22 +46,20 @@ public class FindLoopTest {
     public void whenArrayHasMinValue2() {
         FindLoop find = new FindLoop();
         int[] input = new int[]{3, 2, 5};
-        int value = 2;
-        int result = find.indexOf(input, value);
-        int expect = 1;
+        int result = find.minValue(input);
+        int expect = 2;
         assertThat(result, is(expect));
     }
     /**
      * whenArrayHas1Then2
-     * Заполняем массив произвольными данными и ищем ячейку массива со значением 1, далее выводим индекс ячейки.
+     * Заполняем массив произвольными данными и ищем ячейку массива с минимальным значением 1.
      */
     @Test
-    public void whenArrayHas1Then2() {
+    public void whenArrayHasMinValue1() {
         FindLoop find = new FindLoop();
         int[] input = new int[] {2, 3, 1};
-        int value = 1;
-        int result = find.indexOf(input, value);
-        int expect = 2;
+        int result = find.minValue(input);
+        int expect = 1;
         assertThat(result, is(expect));
     }
 }

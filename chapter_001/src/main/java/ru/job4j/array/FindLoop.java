@@ -31,12 +31,9 @@ public class FindLoop {
     public int minValue(int[] data) {
         int minValue = data[0];
         for (int i = 1; i != data.length; i++) {
-            if (minValue < data[i]) {
-                i++;
-            } else {
+            if (minValue > data[i]) {
                 minValue = data[i];
             }
-
         }
         return minValue;
     }
