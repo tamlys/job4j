@@ -54,4 +54,15 @@ public class CheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
+    /**
+     * whenDataNotMonoByTrue3ThenFalse
+     * Проверяем, что значения не равны и выводим false
+     */
+    @Test
+    public void whenDataNotMonoByTrue3ThenFalse() {
+        Check check = new Check();
+        boolean[] input = new boolean[] {false, true, true, true};
+        boolean result = check.mono(input);
+        assertThat(result, is(false));
+    }
 }
