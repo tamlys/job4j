@@ -6,19 +6,28 @@ package ru.job4j.array;
  * @since 0.1
  */
 public class ArrayChar {
+    /**
+     * char[] data массив, в котором хранится заданное слово
+     */
     private char[] data;
     public ArrayChar(String line) {
         this.data = line.toCharArray();
     }
+
     /**
-     * Проверяет, что слово начинается с префикса.
-     * @param prefix префикс.
-     * @return если слово начинается с префикса
+     * startWith
+     * @param prefix префикс
+     * @return возвращает true или false, в зависимости от того, сходится ли префикс с начальными символами заданного слова
      */
     public boolean startWith(String prefix) {
-        boolean result;
+        boolean result = true;
         char[] value = prefix.toCharArray();
-        result = data[0] == value[0] && data [1] == value[1];
+        for (int i = 0; i != value.length; i++) {
+            if (value[i] != data[i]) {
+                result = false;
+            }
+        }
         return result;
     }
 }
+

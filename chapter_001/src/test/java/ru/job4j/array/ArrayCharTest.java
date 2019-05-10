@@ -30,4 +30,14 @@ public class ArrayCharTest {
         boolean result = word.startWith("Hi");
         assertThat(result, is(false));
     }
+    /**
+     * whenStartWithPrefixThenTrue
+     * Проверяем, если слово начинается с префикса "Hell", возвращаем true, иначе false
+     */
+    @Test
+    public void whenStartWithPrefixThenAllTrue() {
+        ArrayChar word = new ArrayChar("Hello");
+        boolean result = word.startWith("Hell");
+        assertThat(result, is(true));
+    }
 }
