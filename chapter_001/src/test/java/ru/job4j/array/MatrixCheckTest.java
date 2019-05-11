@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
- * Check
+ * MatrixCheckTest
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
  * @version $Id$
  * @since 0.1
