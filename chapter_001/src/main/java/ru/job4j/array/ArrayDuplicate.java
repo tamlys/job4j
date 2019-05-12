@@ -24,6 +24,7 @@ public class ArrayDuplicate {
                     array[newLenght - 1] = array[k];
                     array[k] = tmp;
                     newLenght--;
+                    k--;
                 }
             }
         }
