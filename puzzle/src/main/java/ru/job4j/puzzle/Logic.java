@@ -71,8 +71,8 @@ public class Logic {
         boolean result = false;
         int countRow = 0;
         int countCell = 0;
-        for (int row = 0; row != table.length - 1; row++) {
-            for (int cell = 0; cell != table.length - 1; cell++) {
+        for (int row = 0; row != table.length; row++) {
+            for (int cell = 0; cell != table.length; cell++) {
                 if (table[row][cell] == 1) {
                     countRow++;
                 }
@@ -80,7 +80,7 @@ public class Logic {
                     countCell++;
                 }
             }
-            if (countRow == table.length - 1 || countCell == table.length - 1) {
+            if (countRow == table.length || countCell == table.length) {
                 result = true;
             } else {
                 countCell = 0;
