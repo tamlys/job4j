@@ -2,7 +2,6 @@ package ru.job4j.loop;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * BoardTest
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
@@ -15,7 +14,7 @@ public class BoardTest {
      * Проверяет заполнение шахматной доски 3x3
      */
     @Test
-    public void whenPaintBoardWithWidthThreeAndHeightThreeThenStringWithThreeColsAndThreeRows() {
+    public void paintBoardThreeOnThree() {
         Board board = new Board();
         String result = board.paint(3, 3);
         final String line = System.getProperty("line.separator");
@@ -27,8 +26,7 @@ public class BoardTest {
      * Проверяет заполнение шахматной доски 5x4
      */
     @Test
-    public void whenPaintBoardWithWidthFiveAndHeightFourThenStringWithFiveColsAndFourRows() {
-        //напишите здесь тест, проверяющий формирование доски 5 на 4.
+    public void paintBoardFiveOnFour() {
         Board board = new Board();
         String result = board.paint(5, 4);
         final String line = System.getProperty("line.separator");

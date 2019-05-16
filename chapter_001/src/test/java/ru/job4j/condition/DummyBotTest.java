@@ -2,7 +2,6 @@ package ru.job4j.condition;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * @author Sachenkov Maxin (oqiwhite1996@gmail.com)
  * @version $Id$
@@ -17,7 +16,6 @@ public class DummyBotTest {
                 is("Привет, умник.")
         );
     }
-
     @Test
     public void whenByeBot() {
         DummyBot bot = new DummyBot();
@@ -26,7 +24,6 @@ public class DummyBotTest {
                 is("До скорой встречи.")
         );
     }
-
     @Test
     public void whenUnknownBot() {
         DummyBot bot = new DummyBot();

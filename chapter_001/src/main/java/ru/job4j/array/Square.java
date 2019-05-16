@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 /**
  * Square
  * @author Maxim Sachenkov (oqiwhite1996@gmail.com)

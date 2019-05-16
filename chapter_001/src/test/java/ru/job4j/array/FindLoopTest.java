@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -37,7 +36,6 @@ public class FindLoopTest {
         int expect = -1;
         assertThat(result, is(expect));
     }
-
     /**
      * whenArrayHasMinValue1
      * Заполняем массив произвольными данными и ищем ячейку массива с минимальным значением 2.

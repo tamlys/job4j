@@ -1,5 +1,4 @@
 package ru.job4j.calculator;
-
 import org.junit.Test;
 
 import static org.hamcrest.number.IsCloseTo.closeTo;
@@ -11,7 +10,6 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class FitTest {
-
     /**
      * Search man ideal weight
      */
@@ -21,7 +19,6 @@ public class FitTest {
         double weight = fit.manWeight(180);
         assertThat(weight, closeTo(92.0, 0.1));
     }
-
     /**
      * Search woman ideal weight
      */

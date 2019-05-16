@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -11,7 +10,7 @@ import static org.junit.Assert.assertThat;
  */
 public class ArrayDuplicateTest {
     @Test
-    public void whenTurnArrayWithEvenAmountOfElementsThenTurnedArray() {
+    public void sortedArrayWithoutFiveElements() {
         ArrayDuplicate arDup = new ArrayDuplicate();
         String[] input = new String[]{"Привет", "Мир", "Привет", "Супер", "Мир"};
         String[] result = arDup.remove(input);
@@ -19,7 +18,7 @@ public class ArrayDuplicateTest {
         assertThat(result, is(expect));
     }
     @Test
-    public void whenTurnArrayWithEvenAmountOfElementsThenTurnedArray1() {
+    public void sortedArrayWithoutTenElements() {
         ArrayDuplicate arDup = new ArrayDuplicate();
         String[] input = new String[]{"Привет", "Мир", "Привет", "Супер", "Мир", "Машина", "Вертолет", "Вертолет", "Паровоз", "Машина"};
         String[] result = arDup.remove(input);

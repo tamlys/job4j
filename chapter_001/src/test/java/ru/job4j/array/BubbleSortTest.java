@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -12,17 +11,16 @@ import static org.junit.Assert.assertThat;
  */
 public class BubbleSortTest {
     /**
-     * whenSortArrayWithTenElementsThenSortedArray
+     * sortedArrayTenValues
      * Принимает неотсортированный массив с переменными {1, 5, 4, 2, 3, 1, 7, 8, 0, 5}
      * После сортировки массива {0, 1, 1, 2, 3, 4, 5, 5, 7, 8}
      */
     @Test
-    public void whenSortArrayWithTenElementsThenSortedArray() {
+    public void sortedArrayTenValues() {
         BubbleSort bs = new BubbleSort();
         int[] array = new int[] {1, 5, 4, 2, 3, 1, 7, 8, 0, 5};
         int[] result = bs.sort(array);
         int[] expect = new int[] {0, 1, 1, 2, 3, 4, 5, 5, 7, 8};
         assertThat(result, is(expect));
     }
-
 }

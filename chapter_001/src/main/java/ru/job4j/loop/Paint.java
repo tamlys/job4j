@@ -43,7 +43,6 @@ public class Paint {
                 (row, column) -> row >= height - column - 1 && row + height - 1 >= column
         );
     }
-
     /**
      * loopBy
      * @param height высота пирамиды
@@ -65,5 +64,4 @@ public class Paint {
         }
         return screen.toString();
     }
-
 }

@@ -1,7 +1,5 @@
 package ru.job4j.condition;
-
 public class Triangle {
-
     /**
      * TriagnleTest
      * @author Sachenkov Maxim(oqiwhite1996@gmail.com)
@@ -16,10 +14,8 @@ public class Triangle {
      * @return Перимент.
      */
     public double period(double a, double b, double c) {
-
         return (a + b + c) / 2;
     }
-
     /**
      * Метод должен вычислить прощадь треуголька.
      * Формула.
@@ -38,7 +34,6 @@ public class Triangle {
         }
         return rsl;
     }
-
     /**
      * Метод проверяет можно ли построить треугольник с такими длинами сторон.
      * @param a Длина от точки a b.

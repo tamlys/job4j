@@ -7,7 +7,6 @@ package ru.job4j.loop;
  */
 public class Counter {
     /**
-     *
      * @param start начальное значение
      * @param finish конечное значение
      * @return sum возвращаем сумму четных чисел

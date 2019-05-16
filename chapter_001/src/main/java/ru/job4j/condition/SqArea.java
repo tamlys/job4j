@@ -7,7 +7,6 @@ package ru.job4j.condition;
  */
 public class SqArea {
     /**
-     *
      * @param p - p.
      * @param k - k.
      * @return s.

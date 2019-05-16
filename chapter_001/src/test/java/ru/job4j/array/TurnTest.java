@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -10,11 +9,11 @@ import static org.junit.Assert.assertThat;
  */
 public class TurnTest {
     /**
-     * whenTurnArrayWithEvenAmountOfElementsThenTurnedArray
+     * sortArrayFourCount
      * Получает массив 4, 1, 6, 2 и переворачивает значения, чтобы на выходе получилось 2, 6, 1, 4
      */
     @Test
-    public void whenTurnArrayWithEvenAmountOfElementsThenTurnedArray() {
+    public void sortArrayFourCount() {
         Turn turner = new Turn();
         int[] input = new int[] {4, 1, 6, 2};
         int[] result = turner.back(input);
@@ -22,11 +21,11 @@ public class TurnTest {
         assertThat(result, is(expect));
     }
     /**
-     * whenTurnArrayWithOddAmountOfElementsThenTurnedArray
+     * sortArrayFiveCount
      * Получает массив 1, 2, 3, 4, 5 и переворачивает значения, чтобы на выходе получилось 5, 4, 3, 2, 1
      */
     @Test
-    public void whenTurnArrayWithOddAmountOfElementsThenTurnedArray() {
+    public void sortArrayFiveCount() {
         Turn turner = new Turn();
         int[] input = new int[] {1, 2, 3, 4, 5};
         int[] result = turner.back(input);

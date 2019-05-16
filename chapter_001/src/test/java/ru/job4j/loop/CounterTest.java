@@ -10,11 +10,11 @@ import static org.junit.Assert.assertThat;
  */
 public class CounterTest {
     /**
-     * method whenSumEvenNumbersFromOneToTenThenThirty
+     * method sumValues
      * Проверяем, что сумма четных чисел от 1 до 10, равна 30
      */
     @Test
-    public void whenSumEvenNumbersFromOneToTenThenThirty() {
+    public void sumValues() {
         Counter counter = new Counter();
         int sum = counter.add(0, 10);
         assertThat(sum, is(30));

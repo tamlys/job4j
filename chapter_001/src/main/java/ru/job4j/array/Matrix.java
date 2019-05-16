@@ -8,13 +8,11 @@ package ru.job4j.array;
  */
 
 public class Matrix {
-
     /**
      * multiple
      * @param size размер матрицы
      * @return возвращает таблицу умножения
      */
-
     public int[][] multiple(int size) {
         int[][] table = new int[size][size];
         for (int o = 0; o <= size - 1; o++) {

@@ -1,5 +1,4 @@
 package ru.job4j.condition;
-
 /**
  * @author Sachenkov Maxin (oqiwhite1996@gmail.com)
  * @version $Id$

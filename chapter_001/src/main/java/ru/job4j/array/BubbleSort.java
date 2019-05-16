@@ -8,7 +8,6 @@ package ru.job4j.array;
 public class BubbleSort {
     /**
      * sort
-     *
      * @param array принимает не сортированный массив с произвольными переменными
      * @return возвращает отсортированный массив переменных
      */

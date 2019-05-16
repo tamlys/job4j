@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -21,7 +20,6 @@ public class MatrixCheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(true));
     }
-
     @Test
     public void whenDataNotMonoByTrueThenFalse() {
         MatrixCheck check = new MatrixCheck();
@@ -33,7 +31,6 @@ public class MatrixCheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
-
     @Test
     public void whenDataNotTwoByTrueThenFalse() {
         MatrixCheck check = new MatrixCheck();
@@ -45,7 +42,6 @@ public class MatrixCheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
-
     @Test
     public void whenDataNotTwoByTrueThenTrue() {
         MatrixCheck check = new MatrixCheck();

@@ -9,7 +9,6 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class PointTest {
-
     /**
      * Distance point between other point
      */

@@ -1,5 +1,4 @@
 package ru.job4j.converter;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -10,7 +9,6 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class ConverterTest {
-
     /**
      * Convert ruble to dollar
      */
@@ -20,7 +18,6 @@ public class ConverterTest {
         int result = converter.rubleToDollar(60);
         assertThat(result, is(1));
     }
-
     /**
      * Convert ruble to euro
      */
@@ -30,7 +27,6 @@ public class ConverterTest {
         int result = converter.rubleToEuro(70);
         assertThat(result, is(1));
     }
-
     /**
      * Convert dollar to ruble
      */
@@ -40,7 +36,6 @@ public class ConverterTest {
         int result = converter.dollarToRuble(1);
         assertThat(result, is(60));
     }
-
     /**
      * Convert euro to ruble
      */

@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 /**
  * Check
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)

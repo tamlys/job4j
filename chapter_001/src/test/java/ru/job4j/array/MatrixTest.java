@@ -2,21 +2,17 @@ package ru.job4j.array;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * MatrixTest
  * @author Maxim Sachenkov (oqiwhite1996@gmail.com)
  * @version $Id$
  * @since 0.1
  */
-
 public class MatrixTest {
-
     /**
      * when9on9
      * Строим матрицу 9 на 9
      */
-
     @Test
     public void when9on9() {
         Matrix matrix = new Matrix();
