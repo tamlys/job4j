@@ -13,3 +13,4 @@
 - Hibernate ORM (Mapping, HQL, тестирование с помощью HSQLDB)
 - Spring Framework (IoC, MVC, Data, Security)
 Планирую пройти курс и изучить все темы до конца 2019 года.
+В курсе производилась работа с веткамы git.
