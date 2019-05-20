@@ -1,4 +1,6 @@
 package ru.job4j.condition;
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
 /**
  * Point
  * @author Maxim Sachenkov (oqiwhite1996@gmail.com)
@@ -6,18 +8,30 @@ package ru.job4j.condition;
  * @since 0.1
  */
 public class Point {
+    private int x;
+    private int y;
     /**
-     * Method distance
-     * @param x1 - x1 coordinate point.
-     * @param x2 - x2 coordinate point.
-     * @param y1 - y1 coordinate point.
-     * @param y2 - y2 coordinate point.
-     * @return distance point between other point.
+     * Конструктор
+     * @param first начальное значение x
+     * @param second начальное значение y
      */
-    public double distance(int x1, int y1, int x2, int y2) {
-        double first = Math.pow(x2 - x1, 2);
-        double second = Math.pow(y2 - y1, 2);
-        double result = first + second;
-        return Math.sqrt(result);
+    public Point(int first, int second) {
+        this.x = first;
+        this.y = second;
+    }
+    /**
+     * distance
+     * @param that начальное значение x и y
+     * @return расстояние между точками
+     */
+    public double distance(Point that) {
+        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
+    }
+    /**
+     * Метод info
+     * Выводит начальное значение x и y
+     */
+    public void info() {
+        System.out.println(String.format("Point[%s, %s]", this.x, this.y));
     }
 }
