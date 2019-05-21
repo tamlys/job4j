@@ -1,5 +1,5 @@
 package ru.job4j.inheritance;
 
 public class StudentJunior extends Programmer {
-    String code = "Пример кода";
+    private String code = "Пример кода";
 }
