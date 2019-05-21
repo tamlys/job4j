@@ -23,8 +23,7 @@ public class Max {
      * @return большее значение
      */
     public int max(int first, int second, int third) {
-        int tmp = first > second ? first : second;
-        return tmp > third ? tmp : third;
+        return this.max(first, this.max(second, third));
     }
     /**
      * Метод max
@@ -35,8 +34,6 @@ public class Max {
      * @return большее значение
      */
     public int max(int first, int second, int third, int fourth) {
-        int tmp = first > second ? first : second;
-        int tmpOne = tmp > third ? tmp : third;
-        return tmpOne > fourth ? tmpOne : fourth;
+        return  this.max(first, second, this.max(third, fourth));
     }
 }
