@@ -18,7 +18,9 @@ public class Profession {
     public String getBirthday() {
         return this.birthday;
     }
-    public Profession(){}
+    public Profession() {
+
+    }
     public Profession(String name, String surname, String education, String birthday) {
         this.name = name;
         this.surname = surname;
