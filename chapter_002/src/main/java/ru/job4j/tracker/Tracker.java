@@ -99,7 +99,6 @@ public class Tracker {
      * @return ячейку с заданным именем
      */
     public Item[] findByName(String key) {
-        Item[] result = null;
         int newLength = 0;
         for (int i = 0; i != this.position; i++) {
             if (items[i].getName().equals(key)) {
