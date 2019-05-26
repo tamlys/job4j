@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.Arrays;
 import java.util.Random;
 /**
  * Tracker
@@ -55,11 +56,7 @@ public class Tracker {
      * @return массив со значениями не равными Null
      */
     public Item[] findAll() {
-        Item[] result = new Item[position];
-        for (int index = 0; index != position; index++) {
-            result[index] = items[index];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
     /**
      * Метод ищет ячейку по Id и заменяет ее на новую с тем же Id
@@ -97,19 +94,19 @@ public class Tracker {
     }
 
     /**
-     * Метод ищет ячейку по заданному имени
+     * Метод ищет ячейки по заданному имени
      * @param key ключ поиска
      * @return ячейку с заданным именем
      */
-    public Item findByName(String key) {
-        Item result = null;
+    public Item[] findByName(String key) {
+        Item[] result = null;
+        int newLength = 0;
         for (int i = 0; i != this.position; i++) {
             if (items[i].getName().equals(key)) {
-                result = items[i];
-                break;
+                newLength++;
             }
         }
-        return result;
+        return Arrays.copyOf(this.items, newLength);
     }
 }
 

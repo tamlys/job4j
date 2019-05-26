@@ -59,10 +59,14 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item firstItem = new Item("test1", "testDescription", 12345L);
         tracker.add(firstItem);
-        Item secondItem = new Item("test2", "testDescription", 12345L);
+        Item secondItem = new Item("test2", "testDescription2", 123456L);
         tracker.add(secondItem);
-        Item result = tracker.findByName("test2");
-        assertThat(result, is(secondItem));
+        Item thirdItem = new Item("test2", "testDescription3", 1234567L);
+        tracker.add(thirdItem);
+        Item fourItem = new Item("test2", "testDescription4", 12345678L);
+        tracker.add(fourItem);
+        Item[] result = tracker.findByName("test2");
+        assertThat(result.length, is(3));
     }
 }
 
