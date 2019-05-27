@@ -51,5 +51,14 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id, name, desc, time);
     }
-
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Item{ ");
+        sb.append("id = '").append(id).append('\'');
+        sb.append(", name = '").append(name).append('\'');
+        sb.append(", desc = '").append(desc).append('\'');
+        sb.append(", time = ").append(time);
+        sb.append(" } ");
+        return sb.toString();
+    }
 }
