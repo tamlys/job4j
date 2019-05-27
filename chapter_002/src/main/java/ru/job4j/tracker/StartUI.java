@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -107,10 +108,11 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc, created);
-        this.tracker.replace(id, item);
-        System.out.println("------------ Заявка с ID : " + id + " отредактирована" + " --------------");
-        System.out.println("------------ Name : " + name + " --------------");
-        System.out.println("------------ Description : " + desc +  " --------------");
+        if ( this.tracker.replace(id, item)){
+            System.out.println("------------ Заявка с ID : " + id + " найдена ------------");
+        } else {
+            System.out.println("------------ Заявка с ID : " + id + " не найдена ------------");
+        }
     }
     /**
      * Метод реализует удаление заявки
@@ -118,9 +120,11 @@ public class StartUI {
     private void deleteItem() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите ID заявки :");
-        tracker.delete(id);
-        System.out.println(Arrays.toString(this.tracker.findAll()));
-        System.out.println("------------ Заявка с Id : " + id + " удалена" + "-----------");
+        if ( this.tracker.delete(id)){
+            System.out.println("------------ Заявка с ID : " + id + " удалена ------------");
+        } else {
+            System.out.println("------------ Заявка с ID : " + id + " не найдена ------------");
+        }
     }
     /**
      * Метод реализует поиск заявки по ID
@@ -129,7 +133,11 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по ID --------------");
         String id = this.input.ask("Введите ID заявки :");
         Item result = this.tracker.findById(id);
-        System.out.println(Arrays.toString(new Item[]{result}));
+        if (result != null) {
+            System.out.println(result);
+        } else {
+            System.out.println("------------ Заявка с ID : " + id + " не найдена ------------");
+        }
     }
 
     /**
@@ -139,8 +147,11 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] result = this.tracker.findByName(name);
-        System.out.println("------------ Заявка с именем : " + name + "-----------");
-        System.out.println(Arrays.toString(result));
+        if (result != null) {
+            System.out.println(Arrays.toString(result));
+        } else {
+            System.out.println("------------ Заявка с именем : " + name + " не найдена ------------");
+        }
     }
     /**
      * Метод реализует отображение меню
