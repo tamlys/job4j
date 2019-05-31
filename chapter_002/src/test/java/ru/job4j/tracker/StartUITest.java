@@ -69,8 +69,63 @@ public class StartUITest {
                         .append(" } ]")
                         .append(System.lineSeparator())
                         .append(getMenu())
+                        .toString()
                 )
         );
+    }
+    @Test
+    public void whenUserFindItemByName() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Name1", "Desc1", 1L));
+        Input input = new StubInput(new String[] {"5", "Name1", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(this.out.toString(),
+                is(
+                        new StringBuilder()
+                                .append(getMenu())
+                                .append("------------ Поиск заявки по имени --------------")
+                                .append(System.lineSeparator())
+                                .append("[Item{ ")
+                                .append("id = ")
+                                .append("'" + item.getId() + "',")
+                                .append(" name = ")
+                                .append("'" + item.getName() + "',")
+                                .append(" desc = ")
+                                .append("'" + item.getDesc() + "',")
+                                .append(" time = ")
+                                .append(item.getTime())
+                                .append(" } ]")
+                                .append(System.lineSeparator())
+                                .append(getMenu())
+                                .toString()
+                ));
+    }
+    @Test
+    public void whenUserFindItemByID() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Name1", "Desc1", 1L));
+        Input input = new StubInput(new String[] {"4", item.getId(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(this.out.toString(),
+                is(
+                        new StringBuilder()
+                                .append(getMenu())
+                                .append("------------ Поиск заявки по ID --------------")
+                                .append(System.lineSeparator())
+                                .append("Item{ ")
+                                .append("id = ")
+                                .append("'" + item.getId() + "',")
+                                .append(" name = ")
+                                .append("'" + item.getName() + "',")
+                                .append(" desc = ")
+                                .append("'" + item.getDesc() + "',")
+                                .append(" time = ")
+                                .append(item.getTime())
+                                .append(" } ")
+                                .append(System.lineSeparator())
+                                .append(getMenu())
+                                .toString()
+                ));
     }
 
     @Test
