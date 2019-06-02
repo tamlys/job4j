@@ -7,6 +7,7 @@ package ru.job4j.tracker;
  * @since 0.1
  */
 public class StartUI {
+    private boolean working = true;
     /**
      * Получение данных от пользователя.
      */
@@ -29,11 +30,17 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        menu.fillActions(this);
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+            String answer = this.input.ask("Введите номер пункта меню для продолжения...");
+            int key = Integer.valueOf(answer);
+            menu.select(key);
+        } while (this.working);
+    }
+
+    public void stop() {
+        this.working = false;
     }
     /**
      * Запускт программы.

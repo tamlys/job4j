@@ -39,14 +39,14 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions.add(new AddItem());
         this.actions.add(new FindAll());
         this.actions.add(new EditItem());
         this.actions.add(new DeleteItem());
         this.actions.add(new FindById());
         this.actions.add(new FindByName());
-        this.actions.add(new Exit());
+        this.actions.add(new Exit(ui));
     }
 
     /**
@@ -209,6 +209,11 @@ public class MenuTracker {
     }
 
     private class Exit implements UserAction {
+        private final StartUI ui;
+
+        Exit(StartUI ui) {
+            this.ui = ui;
+        }
         @Override
         public int key() {
             return 6;
@@ -216,7 +221,8 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.exit(key());
+            System.out.println("До скорых встреч");
+            this.ui.stop();
         }
 
         @Override
