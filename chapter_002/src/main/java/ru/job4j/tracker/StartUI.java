@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * StartUI
  * @author Sachenkov Maxim(oqiwhite1996@gmail.com)
@@ -30,12 +33,14 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions(this);
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            String answer = this.input.ask("Введите номер пункта меню для продолжения...");
-            int key = Integer.valueOf(answer);
-            menu.select(key);
+            menu.select(input.ask("Select: ", range));
         } while (this.working);
     }
 
@@ -46,6 +51,7 @@ public class StartUI {
      * Запускт программы.
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
+
