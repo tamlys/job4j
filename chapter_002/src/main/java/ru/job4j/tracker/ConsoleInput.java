@@ -6,7 +6,6 @@ public class ConsoleInput implements Input {
         System.out.print(question);
         return scanner.nextLine();
     }
-
     public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
@@ -16,11 +15,10 @@ public class ConsoleInput implements Input {
                 break;
             }
         }
-        if (exist) {
-            return key;
-        } else {
+        if (!exist) {
             throw new MenuOutExceptiont("Не верные данные. Выберите пункт меню от 0 до 6");
         }
+        return key;
     }
 
 }
