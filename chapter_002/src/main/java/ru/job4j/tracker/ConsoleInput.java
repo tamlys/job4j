@@ -19,7 +19,7 @@ public class ConsoleInput implements Input {
         if (exist) {
             return key;
         } else {
-            throw new MenuOutExceptiont("Не верные данные. Введите значение в диапазоне значений меню");
+            throw new MenuOutExceptiont("Не верные данные. Выберите пункт меню от 0 до 6");
         }
     }
 

@@ -11,7 +11,7 @@ public class ValidateInput extends ConsoleInput {
                 value = super.ask(question, range);
                 invalid = false;
             } catch (MenuOutExceptiont meo) {
-                System.out.println("Пожалуйста, введите значение в диапазоне значений меню");
+                System.out.println("Не верные данные. Выберите пункт меню от 0 до 6");
             } catch (NumberFormatException nfe) {
                 System.out.println("Даннные введены некоректно, введите еще раз");
             }
