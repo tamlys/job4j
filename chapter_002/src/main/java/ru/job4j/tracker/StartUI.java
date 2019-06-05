@@ -19,15 +19,18 @@ public class StartUI {
      * Хранилище заявок.
      */
     private final Tracker tracker;
+
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
+
     /**
      * Основой цикл программы.
      */
@@ -47,11 +50,11 @@ public class StartUI {
     public void stop() {
         this.working = false;
     }
+
     /**
      * Запускт программы.
      */
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
     }
 }
-
