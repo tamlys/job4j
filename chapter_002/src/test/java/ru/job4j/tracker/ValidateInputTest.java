@@ -44,4 +44,18 @@ public class ValidateInputTest {
                 )
         );
     }
+
+    @Test
+    public void whenInputNotRange() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"-1", "1"})
+        );
+        input.ask("Select", new ArrayList<>(1));
+        assertThat(
+                this.mem.toString(),
+                is(
+                        "Не верные данные. Выберите пункт меню от 0 до 6\r\n"
+                )
+        );
+    }
 }
