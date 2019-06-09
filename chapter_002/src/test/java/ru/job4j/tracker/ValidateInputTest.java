@@ -36,7 +36,15 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"invalid", "1"})
         );
-        input.ask("Select", new ArrayList<>(1));
+        ArrayList<Integer> range = new ArrayList<>(7);
+        range.add(0);
+        range.add(1);
+        range.add(2);
+        range.add(3);
+        range.add(4);
+        range.add(5);
+        range.add(6);
+        input.ask("Select", range);
         assertThat(
                 this.mem.toString(),
                 is(
@@ -48,13 +56,43 @@ public class ValidateInputTest {
     @Test
     public void whenInputNotRange() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"-1", "1"})
+                new StubInput(new String[] {"51", "1"})
         );
-        input.ask("Select", new ArrayList<>(1));
+        ArrayList<Integer> range = new ArrayList<>(7);
+        range.add(0);
+        range.add(1);
+        range.add(2);
+        range.add(3);
+        range.add(4);
+        range.add(5);
+        range.add(6);
+        input.ask("Select", range);
         assertThat(
                 this.mem.toString(),
                 is(
                         "Не верные данные. Выберите пункт меню от 0 до 6\r\n"
+                )
+        );
+    }
+
+    @Test
+    public void whenInputInRange() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"1", "1"})
+        );
+        ArrayList<Integer> range = new ArrayList<>(7);
+        range.add(0);
+        range.add(1);
+        range.add(2);
+        range.add(3);
+        range.add(4);
+        range.add(5);
+        range.add(6);
+        input.ask("Select", range);
+        assertThat(
+                this.mem.toString(),
+                is(
+                        ""
                 )
         );
     }
