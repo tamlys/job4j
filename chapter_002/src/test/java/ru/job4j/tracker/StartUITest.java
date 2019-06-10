@@ -53,8 +53,6 @@ public class StartUITest {
                 is(
                     new StringBuilder()
                         .append(getMenu())
-                        .append("------------ Вывод всех заявок --------------")
-                        .append(System.lineSeparator())
                         .append("[Item{ ")
                         .append("id = ")
                         .append("'" + item.getId() + "',")
@@ -83,8 +81,6 @@ public class StartUITest {
                 is(
                         new StringBuilder()
                                 .append(getMenu())
-                                .append("------------ Поиск заявки по имени --------------")
-                                .append(System.lineSeparator())
                                 .append("[Item{ ")
                                 .append("id = ")
                                 .append("'" + item.getId() + "',")
@@ -112,8 +108,6 @@ public class StartUITest {
                 is(
                         new StringBuilder()
                                 .append(getMenu())
-                                .append("------------ Поиск заявки по ID --------------")
-                                .append(System.lineSeparator())
                                 .append("Item{ ")
                                 .append("id = ")
                                 .append("'" + item.getId() + "',")
