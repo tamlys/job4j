@@ -1,5 +1,10 @@
 package ru.job4j.tracker;
-
+/**
+ * BaseAction
+ * @author Sachenkov Maxim(oqiwhite1996@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public abstract class BaseAction implements UserAction {
     private final int key;
     private final String name;

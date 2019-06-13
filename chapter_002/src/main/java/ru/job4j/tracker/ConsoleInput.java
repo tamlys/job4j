@@ -1,5 +1,11 @@
 package ru.job4j.tracker;
 import java.util.*;
+/**
+ * ConsoleInput
+ * @author  Maxim Sachenkov (oqiwhite1996@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
     @Override

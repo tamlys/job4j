@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 import java.util.List;
-
 /**
  * ValidateInput
  * @author Sachenkov Maxim(oqiwhite1996@gmail.com)

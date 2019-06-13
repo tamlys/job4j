@@ -2,12 +2,20 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 import java.util.Random;
 /**
- * Tracker
+ * TrackerFinalLazyLoading
  * @author  Maxim Sachenkov (oqiwhite1996@gmail.com)
  * @version $Id$
  * @since 0.1
  */
-public class Tracker {
+public class  TrackerFinalLazyLoading {
+    private TrackerFinalLazyLoading() {
+    }
+    public static TrackerFinalLazyLoading getInstance() {
+        return Holder.INSTANCE;
+    }
+    private static final class Holder {
+        private static final TrackerFinalLazyLoading INSTANCE = new TrackerFinalLazyLoading();
+    }
     /**
      * Массив для хранение заявок.
      */
@@ -16,8 +24,8 @@ public class Tracker {
      * Указатель ячейки для новой заявки.
      */
     private int position = 0;
-
     private static final Random RN = new Random();
+
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
@@ -92,7 +100,6 @@ public class Tracker {
         }
         return result;
     }
-
     /**
      * Метод ищет ячейки по заданному имени
      * @param key ключ поиска
@@ -108,5 +115,7 @@ public class Tracker {
         return Arrays.copyOf(this.items, newLength);
     }
 
+    public static void main(String[] args) {
+        TrackerFinalLazyLoading tracker = TrackerFinalLazyLoading.getInstance();
+    }
 }
-

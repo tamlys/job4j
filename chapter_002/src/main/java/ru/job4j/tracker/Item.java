@@ -1,17 +1,21 @@
 package ru.job4j.tracker;
 import java.util.Objects;
+/**
+ * Item
+ * @author  Maxim Sachenkov (oqiwhite1996@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class Item {
     private String id;
     private String name;
     private String desc;
     private long time;
-
     public Item(String name, String desc, long time) {
         this.name = name;
         this.desc = desc;
         this.time = time;
     }
-
     public String getId() {
         return id;
     }
@@ -61,4 +65,5 @@ public class Item {
         sb.append(" } ");
         return sb.toString();
     }
+
 }

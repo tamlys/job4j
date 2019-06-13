@@ -1,9 +1,13 @@
 package ru.job4j.tracker;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * MenuTracker
+ * @author  Maxim Sachenkov (oqiwhite1996@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class MenuTracker {
     /**
      * @param хранит ссылку на объект .
