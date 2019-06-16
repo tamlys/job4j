@@ -5,7 +5,7 @@ package ru.job4j.tracker;
  * @version $Id$
  * @since 0.1
  */
-public class MenuOutExceptiont extends RuntimeException { //Наследование MenuOutExceptiont от родителя RuntimeException
+public class MenuOutExceptiont extends RuntimeException {
     public MenuOutExceptiont(String msg) {
         super(msg);
     }
