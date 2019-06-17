@@ -1,9 +1,7 @@
 package ru.job4j.chess.firuges.black;
-
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 import ru.job4j.chess.ImposibleMoveException;
-
 /**
  * RookBlack
  * @author Maxim Sachenkov (oqiwhite1996@gmail.com)
@@ -12,7 +10,6 @@ import ru.job4j.chess.ImposibleMoveException;
  */
 public class RookBlack implements Figure {
     private final Cell position;
-
     public RookBlack(final Cell position) {
         this.position = position;
     }
@@ -21,7 +18,6 @@ public class RookBlack implements Figure {
     public Cell position() {
         return this.position;
     }
-
     private boolean checkWay(Cell source, Cell dest) {
         return (source.x != dest.x && source.y == dest.y) ||  (source.x == dest.x && source.y != dest.y);
     }

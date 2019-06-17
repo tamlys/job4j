@@ -10,7 +10,6 @@ import ru.job4j.chess.ImposibleMoveException;
  */
 public class BishopBlack implements Figure {
     private final Cell position;
-
     public BishopBlack(final Cell position) {
         this.position = position;
     }
@@ -19,7 +18,6 @@ public class BishopBlack implements Figure {
     public Cell position() {
         return this.position;
     }
-
     public boolean checkWay(Cell source, Cell dest) {
         return (source.x > dest.x && source.y < dest.y)
                 || (source.x > dest.x && source.y > dest.y)

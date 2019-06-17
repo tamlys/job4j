@@ -11,7 +11,6 @@ import ru.job4j.chess.firuges.Figure;
  */
 public class PawnBlack implements Figure {
     private final Cell position;
-
     public PawnBlack(final Cell position) {
         this.position = position;
     }
