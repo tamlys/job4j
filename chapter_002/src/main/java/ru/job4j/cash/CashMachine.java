@@ -5,6 +5,7 @@ package ru.job4j.cash;
  * @version $Id$
  * @since 0.1
  */
+
 public class CashMachine {
     private int value;
     private int price;
