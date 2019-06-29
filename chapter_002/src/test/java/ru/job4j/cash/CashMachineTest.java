@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
  * @version $Id$
  * @since 0.1
  */
+
 public class CashMachineTest {
     @Test
     public void whenValue100Price35() {
