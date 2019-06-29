@@ -1,31 +1,28 @@
 package ru.job4j.cash;
+import java.util.Arrays;
 /**
  * cash
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
  * @version $Id$
  * @since 0.1
  */
-
 public class CashMachine {
-    private int value;
-    private int price;
-    private int[] coint = {10, 5, 2, 1};
-    private int[] res = new int[4];
-    public int[] changes(int value, int price) {
+    private int[] coint = {1, 2, 5, 10};
+    int[] changes(int value, int price) {
+        int[] result = new int[100];
         int returnMoney = value - price;
+        int maxCoin = coint[coint.length - 1];
         int count = 0;
-        for (int coin : coint) {
-            while (returnMoney > 0) {
-                if (returnMoney > coint[coin]) {
-                    returnMoney -= coint[coin];
+        for (int i = 0; returnMoney != 0;) {
+                if (returnMoney >= maxCoin) {
+                    result[i++] = maxCoin;
+                    returnMoney = returnMoney - maxCoin;
                     count++;
                 } else {
-                        res[coin] = count;
-                        count = 0;
+                    maxCoin--;
                 }
-            }
         }
-        return res;
+        return Arrays.copyOf(result, count);
     }
 }
 

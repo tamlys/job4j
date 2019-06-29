@@ -13,7 +13,21 @@ public class CashMachineTest {
     public void whenValue100Price35() {
             CashMachine cm = new CashMachine();
             int[] result = cm.changes(100, 35);
-            int[] expect = {6, 1, 0, 0};
+            int[] expect = {10, 10, 10, 10, 10, 10, 5};
             assertThat(result, is(expect));
+    }
+    @Test
+    public void whenValue70Price35() {
+        CashMachine cm = new CashMachine();
+        int[] result = cm.changes(70, 35);
+        int[] expect = {10, 10, 10, 5};
+        assertThat(result, is(expect));
+    }
+    @Test
+    public void whenValue50Price35() {
+        CashMachine cm = new CashMachine();
+        int[] result = cm.changes(50, 35);
+        int[] expect = {10, 5};
+        assertThat(result, is(expect));
     }
 }
