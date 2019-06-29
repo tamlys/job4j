@@ -1,6 +1,5 @@
 package ru.job4j.cash;
 import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -16,5 +15,5 @@ public class CashMachineTest {
             int[] result = cm.changes(100, 35);
             int[] expect = {6, 1, 0, 0};
             assertThat(result, is(expect));
-        }
     }
+}

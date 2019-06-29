@@ -19,6 +19,7 @@ public class CashMachine {
                     returnMoney -= coint[coin];
                     count++;
                 } else {
+
                         res[coin] = count;
                         count = 0;
                 }
