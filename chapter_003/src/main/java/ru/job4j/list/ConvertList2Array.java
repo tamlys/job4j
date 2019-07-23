@@ -1,4 +1,5 @@
 package ru.job4j.list;
+import java.util.ArrayList;
 import java.util.List;
 /**
  * ConvertList2Array
@@ -14,11 +15,20 @@ public class ConvertList2Array {
         int indexCells = 0;
         for (Integer i : list) {
             array[indexRows][indexCells++] = i;
-           if (indexCells == cells) {
-               indexCells = 0;
-               indexRows++;
-           }
+            if (indexCells == cells) {
+                indexCells = 0;
+                indexRows++;
+            }
         }
         return array;
+    }
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] res : list) {
+            for (int count : res) {
+                result.add(count);
+            }
+        }
+        return result;
     }
 }
