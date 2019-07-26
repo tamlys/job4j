@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * UserConvertTest
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
