@@ -17,7 +17,11 @@ public class Tracker {
      * Указатель ячейки для новой заявки.
      */
     private static final Random RN = new Random();
-
+    /**
+     * Метод indexOf
+     * @param id ключ объекта
+     * @return возвращает Index элемента
+     */
     int indexOf(String id) {
         int result = -1;
         for (int i = 0; i < items.size(); i++) {
@@ -27,7 +31,6 @@ public class Tracker {
         }
         return result;
     }
-
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
@@ -115,6 +118,5 @@ public class Tracker {
         }
         return list;
     }
-
 }
 
