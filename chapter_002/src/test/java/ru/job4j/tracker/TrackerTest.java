@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -15,8 +18,7 @@ public class TrackerTest {
         long created = System.currentTimeMillis();
         Item item = new Item("test1", "testDescription", created);
         tracker.add(item);
-        Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        assertThat(item.getName(), is("test1"));
     }
     @Test
     public void whenReplaceName() {
@@ -26,7 +28,7 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription2", 1234L);
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
-        assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
+        assertThat(tracker.findById(previous.getId()), is(previous));
     }
     @Test
     public void whenFindById() {
@@ -42,7 +44,7 @@ public class TrackerTest {
         tracker.add(firstItem);
         Item secondItem = new Item("test2", "testDescription2", 1234L);
         tracker.add(secondItem);
-        assertThat(tracker.findAll().length, is(2));
+        assertThat(tracker.findAll().size(), is(2 ));
     }
     @Test
     public void whenDelete() {
@@ -52,7 +54,7 @@ public class TrackerTest {
         Item secondItem = new Item("test2", "testDescription", 12345L);
         tracker.add(secondItem);
         tracker.delete(firstItem.getId());
-        assertThat(tracker.findAll().length, is(1));
+        assertThat(tracker.findAll().size(), is(1));
     }
     @Test
     public void whenFindByName() {
@@ -65,8 +67,8 @@ public class TrackerTest {
         tracker.add(thirdItem);
         Item fourItem = new Item("test2", "testDescription4", 12345678L);
         tracker.add(fourItem);
-        Item[] result = tracker.findByName("test2");
-        assertThat(result.length, is(3));
+        List<Item> result = tracker.findByName("test2");
+        assertThat(result.size(), is(3));
     }
 }
 

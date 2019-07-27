@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 /**
@@ -13,20 +12,31 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final Item[] items = new Item[100];
+    private final ArrayList<Item> items = new ArrayList<>();
     /**
      * Указатель ячейки для новой заявки.
      */
     private int position = 0;
 
     private static final Random RN = new Random();
+
+    int indexOf(String id) {
+        int result = -1;
+        for (int i = 0; i < position; i++) {
+            if ((items.get(i) != null) && (id.equals(items.get(i).getId()))) {
+                result = i;
+            }
+        }
+        return result;
+    }
+
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items[this.position++] = item;
+        items.add(position++, item);
         return item;
     }
     /**
@@ -42,14 +52,13 @@ public class Tracker {
      * @param id уникальный ключ
      * @return ячейку массива с заданным Id
      */
-    public Item findById(String id) {
-        Item result = null;
+    public List<Item> findById(String id) {
+        List<Item> result = new ArrayList<>();
         for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
+            if (item.getId().equals(id)) {
+                result.add(item);
                 break;
             }
-            result = null;
         }
         return result;
     }
@@ -57,8 +66,8 @@ public class Tracker {
      * Метод выводит все значения массива, которые не равны Null
      * @return массив со значениями не равными Null
      */
-    public Item[] findAll() {
-        return Arrays.copyOf(this.items, this.position);
+    public List<Item> findAll() {
+        return items;
     }
     /**
      * Метод ищет ячейку по Id и заменяет ее на новую с тем же Id
@@ -67,16 +76,13 @@ public class Tracker {
      * @return ячейку с новыми значениями полей
      */
     public boolean replace(String id, Item item) {
-        boolean result = false;
-        for (int i = 0; i < this.position; i++) {
-            if (items[i].getId().equals(id)) {
-                items[i] = item;
-                item.setId(id);
-                result = true;
-                break;
-            }
+        int index = indexOf(id);
+        if (index != -1) {
+            items.set(index, item);
+            item.setId(id);
+            return true;
         }
-        return result;
+        return false;
     }
     /**
      * Метод ищет ячейку по Id и удаляет ее со сдвигом ячеек влево.
@@ -85,11 +91,11 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i < this.position; i++) {
-            if (items[i].getId().equals(id)) {
-                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
-                this.position--;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                items.remove(item);
                 result = true;
+                break;
             }
         }
         return result;
@@ -100,14 +106,14 @@ public class Tracker {
      * @param key ключ поиска
      * @return ячейку с заданным именем
      */
-    public Item[] findByName(String key) {
-        int newLength = 0;
-        for (int i = 0; i != this.position; i++) {
-            if (items[i].getName().equals(key)) {
-                newLength++;
+    public List<Item> findByName(String key) {
+        List<Item> list = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                list.add(item);
             }
         }
-        return Arrays.copyOf(this.items, newLength);
+        return list;
     }
 
 }

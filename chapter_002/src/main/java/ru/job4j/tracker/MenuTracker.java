@@ -93,7 +93,7 @@ public class MenuTracker {
         }
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println(Arrays.toString(tracker.findAll()));
+            System.out.println(tracker.findAll());
         }
     }
 
@@ -141,7 +141,7 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Введите имя заявки :");
-            System.out.println(Arrays.toString(tracker.findByName(name)));
+            System.out.println(tracker.findByName(name));
         }
     }
 
