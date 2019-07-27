@@ -17,6 +17,7 @@ public class Tracker {
      * Указатель ячейки для новой заявки.
      */
     private static final Random RN = new Random();
+
     /**
      * Метод indexOf
      * @param id ключ объекта
