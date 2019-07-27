@@ -12,17 +12,15 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final ArrayList<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
     /**
      * Указатель ячейки для новой заявки.
      */
-    private int position = 0;
-
     private static final Random RN = new Random();
 
     int indexOf(String id) {
         int result = -1;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             if ((items.get(i) != null) && (id.equals(items.get(i).getId()))) {
                 result = i;
             }
@@ -36,7 +34,11 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        items.add(position++, item);
+        if (items.isEmpty()) {
+            items.add(0, item);
+        } else {
+            items.add(items.lastIndexOf(item), item);
+        }
         return item;
     }
     /**
@@ -91,13 +93,11 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                items.remove(item);
+        int index = indexOf(id);
+        if (index != -1) {
+                items.remove(index);
                 result = true;
-                break;
             }
-        }
         return result;
     }
 
