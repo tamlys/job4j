@@ -56,7 +56,11 @@ public class Tracker {
      */
     public Item findById(String id) {
         int index = indexOf(id);
-        return items.get(index);
+        Item item = null;
+        if (index != -1) {
+            item = items.get(index);
+        }
+        return item;
     }
     /**
      * Метод выводит все значения массива, которые не равны Null
