@@ -38,11 +38,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        if (items.isEmpty()) {
-            items.add(0, item);
-        } else {
-            items.add(items.lastIndexOf(item), item);
-        }
+        items.add(item);
         return item;
     }
     /**
@@ -58,15 +54,9 @@ public class Tracker {
      * @param id уникальный ключ
      * @return ячейку массива с заданным Id
      */
-    public List<Item> findById(String id) {
-        List<Item> result = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                result.add(item);
-                break;
-            }
-        }
-        return result;
+    public Item findById(String id) {
+        int index = indexOf(id);
+        return items.get(index);
     }
     /**
      * Метод выводит все значения массива, которые не равны Null
