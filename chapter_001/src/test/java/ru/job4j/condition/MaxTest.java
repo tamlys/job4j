@@ -36,7 +36,7 @@ public class MaxTest {
     @Test
     public void whenMax2To2To1To5Then2() {
         Max max = new Max();
-        int result = max.max(2, 2,5,1);
+        int result = max.max(2, 2, 5, 1);
         assertThat(result, is(5));
     }
 }

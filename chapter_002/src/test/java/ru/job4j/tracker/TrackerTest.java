@@ -28,7 +28,7 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription2", 1234L);
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
-        assertThat(tracker.findById(previous.getId()), is(previous));
+        assertThat(tracker.findById(previous.getId()), is(next));
     }
     @Test
     public void whenFindById() {
@@ -44,7 +44,7 @@ public class TrackerTest {
         tracker.add(firstItem);
         Item secondItem = new Item("test2", "testDescription2", 1234L);
         tracker.add(secondItem);
-        assertThat(tracker.findAll().size(), is(2 ));
+        assertThat(tracker.findAll().size(), is(2));
     }
     @Test
     public void whenDelete() {
