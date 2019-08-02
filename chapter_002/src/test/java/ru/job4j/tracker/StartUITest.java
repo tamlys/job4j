@@ -131,7 +131,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[] {"0", "test name", "desc", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(), is("test name"));
+        assertThat(tracker.findAll(), is(tracker.findByName("test name")));
     }
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
@@ -139,7 +139,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc", 12L));
         Input input = new StubInput(new String[] {"2", item.getId(), "test replace", "заменили заявку", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findById(item.getId()), is(item));
+        assertThat(tracker.findAll(), is(tracker.findByName("test replace")));
     }
     @Test
     public void whenDelete() {
@@ -162,7 +162,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Max", "desc", 123L));
         Input input = new StubInput(new String[] {"5", item.getName(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName(item.getName()), is(item));
+        assertThat(tracker.findByName(item.getName()), is(tracker.findByName("Max")));
     }
 }
 
