@@ -45,12 +45,7 @@ public class ValidateInputTest {
         range.add(5);
         range.add(6);
         input.ask("Select", range);
-        assertThat(
-                this.mem.toString(),
-                is(
-                        "Даннные введены некоректно, введите еще раз\r\n"
-                )
-        );
+        assertThat(this.mem.toString(), is("Даннные введены некоректно, введите еще раз" + System.lineSeparator()));
     }
 
     @Test
@@ -67,12 +62,7 @@ public class ValidateInputTest {
         range.add(5);
         range.add(6);
         input.ask("Select", range);
-        assertThat(
-                this.mem.toString(),
-                is(
-                        "Не верные данные. Выберите пункт меню от 0 до 6\r\n"
-                )
-        );
+        assertThat(this.mem.toString(), is("Не верные данные. Выберите пункт меню от 0 до 6" + System.lineSeparator()));
     }
 
     @Test
@@ -89,11 +79,6 @@ public class ValidateInputTest {
         range.add(5);
         range.add(6);
         input.ask("Select", range);
-        assertThat(
-                this.mem.toString(),
-                is(
-                        ""
-                )
-        );
+        assertThat(this.mem.toString(), is(""));
     }
 }
