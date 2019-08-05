@@ -22,11 +22,11 @@ public class Bank {
         return result;
     }
 
-    private Account findAccountByRequisites(String requisites) {
+    private Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
         for (User user : map.keySet()) {
             for (Account account : map.get(user)) {
-                if (account.getRequisites().equals(requisites)) {
+                if (user.getPassport().equals(passport) && account.getRequisites().equals(requisites)) {
                     result = account;
                 }
             }
@@ -61,13 +61,13 @@ public class Bank {
 
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
         boolean result = false;
-        User senderPass = findUserByPassport(srcPassport);
-        Account senderRequ = findAccountByRequisites(srcRequisite);
-        User recipientPass = findUserByPassport(destPassport);
-        Account recipientRequ = findAccountByRequisites(dstRequisite);
-        if (senderRequ.getValue() >= amount) {
-            senderRequ.setValue(recipientRequ.getValue() + amount);
-            result = true;
+        Account sender = findAccountByPassportAndRequisites(srcPassport, srcRequisite);
+        Account recipient = findAccountByPassportAndRequisites(destPassport, dstRequisite);
+        if (sender != null && recipient != null) {
+            if (sender.getValue() >= amount) {
+                sender.setValue(recipient.getValue() + amount);
+                result = true;
+            }
         }
         return result;
     }
