@@ -36,12 +36,40 @@ public class Bank {
 
     public void addAccountToUser(String passport, Account account) {
         User user = findUserByPassport(passport);
-        map.get(user).add(account);
+        if (user != null) {
+            map.get(user).add(account);
+        }
     }
 
     public void deleteAccountFromUser(String passport, Account account) {
         User user = findUserByPassport(passport);
         map.get(user).remove(account);
+    }
+
+    public List<Account> getUserAccounts(String requisites) {
+        List<Account> result = new ArrayList<>();
+        for (User user : map.keySet()) {
+            for (Account account : map.get(user)) {
+                if (account.getRequisites().equals(requisites)) {
+                    result.add(account);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
+        boolean result = false;
+        User senderPass = findUserByPassport(srcPassport);
+        Account senderRequ = findAccountByRequisites(srcRequisite);
+        User recipientPass = findUserByPassport(destPassport);
+        Account recipientRequ = findAccountByRequisites(dstRequisite);
+        if (senderRequ.getValue() >= amount) {
+            senderRequ.setValue(recipientRequ.getValue() + amount);
+            result = true;
+        }
+        return result;
     }
 
     @Override
@@ -51,6 +79,7 @@ public class Bank {
             sb.append(user.getName()).append(System.lineSeparator());
             for (Account account : map.get(user)) {
                 sb.append(account.getRequisites());
+                sb.append(" ");
             }
             sb.append(System.lineSeparator());
         }
