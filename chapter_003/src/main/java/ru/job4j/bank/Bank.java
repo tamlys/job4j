@@ -15,8 +15,10 @@ public class Bank {
     private User findUserByPassport(String passport) {
         User result = null;
         for (User user : map.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
+            if (user != null) {
+                if (user.getPassport().equals(passport)) {
+                    result = user;
+                }
             }
         }
         return result;
@@ -24,10 +26,12 @@ public class Bank {
 
     private Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
-        for (User user : map.keySet()) {
-            for (Account account : map.get(user)) {
-                if (user.getPassport().equals(passport) && account.getRequisites().equals(requisites)) {
-                    result = account;
+        final User userByPassport = this.findUserByPassport(passport);
+        if (userByPassport != null) {
+            final List<Account> accounts = map.get(userByPassport);
+            for (Account acc : accounts) {
+                if (acc.getRequisites().equals(requisites)) {
+                    result = acc;
                 }
             }
         }
