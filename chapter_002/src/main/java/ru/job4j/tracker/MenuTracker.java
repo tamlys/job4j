@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+
 /**
  * MenuTracker
  * @author  Maxim Sachenkov (oqiwhite1996@gmail.com)
@@ -9,6 +11,7 @@ import java.util.List;
  * @since 0.1
  */
 public class MenuTracker {
+    private final Consumer<String> output;
     /**
      * @param хранит ссылку на объект .
      */
@@ -27,9 +30,10 @@ public class MenuTracker {
      * @param input   объект типа Input
      * @param tracker объект типа Tracker
      */
-    public MenuTracker(Input input, Tracker tracker) {
+    public MenuTracker(Input input, Tracker tracker, Consumer<String> output) {
         this.input = input;
         this.tracker = tracker;
+        this.output = output;
     }
     /**
      * Метод для получения массива меню.
@@ -68,7 +72,7 @@ public class MenuTracker {
     public void show() {
         for (UserAction action : this.actions) {
             if (action != null) {
-                System.out.println(action.info());
+                output.accept(action.info());
             }
         }
     }
@@ -158,7 +162,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println("До скорых встреч");
+            output.accept(("До скорых встреч"));
             this.ui.stop();
         }
 

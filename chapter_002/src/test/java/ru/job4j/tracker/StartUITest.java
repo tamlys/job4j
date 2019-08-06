@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.function.Consumer;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -15,6 +17,14 @@ import static org.junit.Assert.assertThat;
 public class StartUITest {
     private PrintStream stdout = System.out;
     private ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final Consumer<String> output = new Consumer<String>() {
+        private final PrintStream stdout = new PrintStream(out);
+
+        @Override
+        public void accept(String s) {
+            stdout.println(s);
+        }
+    };
     @Before
     public void loadOutput() {
         System.out.println("execute before method");
@@ -48,7 +58,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Name1", "Desc1", 1L));
         Input input = new StubInput(new String[] {"1", "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(this.out.toString(),
                 is(
                     new StringBuilder()
@@ -76,7 +86,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Name1", "Desc1", 1L));
         Input input = new StubInput(new String[] {"5", "Name1", "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(this.out.toString(),
                 is(
                         new StringBuilder()
@@ -103,7 +113,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Name1", "Desc1", 1L));
         Input input = new StubInput(new String[] {"4", item.getId(), "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(this.out.toString(),
                 is(
                         new StringBuilder()
@@ -130,7 +140,7 @@ public class StartUITest {
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[] {"0", "test name", "desc", "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(tracker.findAll(), is(tracker.findByName("test name")));
     }
     @Test
@@ -138,7 +148,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test name", "desc", 12L));
         Input input = new StubInput(new String[] {"2", item.getId(), "test replace", "заменили заявку", "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(tracker.findAll(), is(tracker.findByName("test replace")));
     }
     @Test
@@ -146,14 +156,15 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test name", "desc", 12L));
         Input input = new StubInput(new String[] {"3", item.getId(), "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
     }
     @Test
     public void whenFindById() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test name", "desc", 12L));
         Input input = new StubInput(new String[] {"4", item.getId(), "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
+        String expected = "test name";
         assertThat(tracker.findById(item.getId()), is(item));
     }
     @Test
@@ -161,7 +172,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Max", "desc", 123L));
         Input input = new StubInput(new String[] {"5", item.getName(), "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input, tracker, output).init();
         assertThat(tracker.findByName(item.getName()), is(tracker.findByName("Max")));
     }
 }
