@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class Profiles {
     public List<Address> collect(List<Profile> profiles) {
-        List<Address> result = profiles.stream().map(Profile::getAddress).distinct().sorted(Comparator.comparing(Address::getCity)).collect(Collectors.toList());
+        List<Address> result = profiles.stream().map(Profile::getAddress).sorted(Comparator.comparing(Address::getCity)).distinct().collect(Collectors.toList());
         return result;
     }
 }
