@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class ListToMap {
         Map<String, Student> convert(List<Student> students) {
-        Map<String, Student> result = students.stream().distinct().collect(Collectors.toMap(Student::getSecondName, student -> student));
+        Map<String, Student> result = students.stream().collect(Collectors.toMap(Student::getSecondName, student -> student));
         return result;
     }
 }
