@@ -7,13 +7,18 @@ package ru.job4j.stream;
  */
 public class Student {
     private int score;
+    private String secondName;
 
-    public Student(int score) {
+    public Student(int score, String secondName) {
         this.score = score;
+        this.secondName = secondName;
     }
 
     public int getScore() {
         return score;
     }
 
+    public String getSecondName() {
+        return secondName;
+    }
 }

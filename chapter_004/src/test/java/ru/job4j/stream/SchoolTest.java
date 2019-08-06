@@ -14,12 +14,12 @@ public class SchoolTest {
     @Test
     public void whenClassA() {
         School school = new School();
-        Student max = new Student(10);
-        Student oleg = new Student(20);
-        Student alex = new Student(60);
-        Student alexander = new Student(65);
-        Student misha = new Student(80);
-        Student dima = new Student(90);
+        Student max = new Student(20, "Savenkov");
+        Student oleg = new Student(20, "Vasykov");
+        Student alex = new Student(60, "Dergynov");
+        Student alexander = new Student(65, "Ivleev");
+        Student misha = new Student(80, "Ivanov");
+        Student dima = new Student(90, "Petrov");
         List<Student> students = new ArrayList<>();
         students.add(max);
         students.add(oleg);
@@ -37,12 +37,12 @@ public class SchoolTest {
     @Test
     public void whenClassB() {
         School school = new School();
-        Student max = new Student(10);
-        Student oleg = new Student(20);
-        Student alex = new Student(60);
-        Student alexander = new Student(65);
-        Student misha = new Student(80);
-        Student dima = new Student(90);
+        Student max = new Student(20, "Savenkov");
+        Student oleg = new Student(20, "Vasykov");
+        Student alex = new Student(60, "Dergynov");
+        Student alexander = new Student(65, "Ivleev");
+        Student misha = new Student(80, "Ivanov");
+        Student dima = new Student(90, "Petrov");
         List<Student> students = new ArrayList<>();
         students.add(max);
         students.add(oleg);
@@ -60,12 +60,12 @@ public class SchoolTest {
 
     public void whenClassC() {
         School school = new School();
-        Student max = new Student(10);
-        Student oleg = new Student(20);
-        Student alex = new Student(60);
-        Student alexander = new Student(65);
-        Student misha = new Student(80);
-        Student dima = new Student(90);
+        Student max = new Student(20, "Savenkov");
+        Student oleg = new Student(20, "Vasykov");
+        Student alex = new Student(60, "Dergynov");
+        Student alexander = new Student(65, "Ivleev");
+        Student misha = new Student(80, "Ivanov");
+        Student dima = new Student(90, "Petrov");
         List<Student> students = new ArrayList<>();
         students.add(max);
         students.add(oleg);
