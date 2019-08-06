@@ -2,7 +2,7 @@ package ru.job4j.stream;
 import java.util.List;
 import java.util.stream.Collectors;
 /**
- * Student
+ * Profiles
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
  * @version $Id$
  * @since 06.08.19
