@@ -1,5 +1,7 @@
 package ru.job4j.bank;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Bank {
     private Map<User, List<Account>> map = new TreeMap<>();
@@ -13,27 +15,20 @@ public class Bank {
     }
 
     private User findUserByPassport(String passport) {
+        Optional<User> user = map.keySet().stream().filter(user1 -> user1.getPassport().equals(passport)).findFirst();
         User result = null;
-        for (User user : map.keySet()) {
-            if (user != null) {
-                if (user.getPassport().equals(passport)) {
-                    result = user;
-                }
-            }
+        if (user.isPresent()) {
+            result = user.get();
         }
         return result;
     }
 
     private Account findAccountByPassportAndRequisites(String passport, String requisites) {
-        Account result = null;
         final User userByPassport = this.findUserByPassport(passport);
-        if (userByPassport != null) {
-            final List<Account> accounts = map.get(userByPassport);
-            for (Account acc : accounts) {
-                if (acc.getRequisites().equals(requisites)) {
-                    result = acc;
-                }
-            }
+        Optional<Account> account = map.get(userByPassport).stream().filter(account1 -> account1.getRequisites().equals(requisites)).findFirst();
+        Account result = null;
+        if (account.isPresent()) {
+            result = account.get();
         }
         return result;
     }
