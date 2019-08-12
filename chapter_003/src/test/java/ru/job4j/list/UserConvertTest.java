@@ -1,8 +1,7 @@
 package ru.job4j.list;
 import org.junit.Test;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -15,15 +14,14 @@ public class UserConvertTest {
     @Test
     public void listConvertToHashMap() {
      UserConvert userConvert = new UserConvert();
-     List<User> list = new ArrayList<>();
      User max = new User(1, "Maxim", "Penza");
-     list.add(max);
      User alex = new User(2, "Alexander", "Moscow");
-     list.add(alex);
-     HashMap<Integer, User> res = userConvert.process(list);
-     HashMap<Integer, User> search = new HashMap<>();
-     search.put(1, max);
-     search.put(2, alex);
-     assertThat(res, is(search));
+     List<User> list = List.of(max, alex);
+     Map<Integer, User> result = userConvert.process(list);
+     Map<Integer, User> expected = Map.of(
+             1, max,
+             2, alex
+     );
+     assertThat(expected, is(result));
     }
 }
