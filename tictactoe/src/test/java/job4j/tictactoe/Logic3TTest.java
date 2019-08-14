@@ -1,11 +1,14 @@
 package job4j.tictactoe;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
+/**
+ * Logic3TTest
+ * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
+ * @version $Id$
+ * @since 14.08.19
+ */
 public class Logic3TTest {
-
     @Test
     public void whenHasXWinner() {
         Figure3T[][] table = {
@@ -16,8 +19,6 @@ public class Logic3TTest {
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerX(), is(true));
     }
-
-
     @Test
     public void whenNotFill() {
         Figure3T[][] table = {
@@ -29,7 +30,6 @@ public class Logic3TTest {
         assertThat(login.isWinnerX(), is(false));
         assertThat(login.isWinnerX(), is(false));
     }
-
     @Test
     public void whenHasXHorizontalWinner() {
         Figure3T[][] table = {
@@ -40,7 +40,6 @@ public class Logic3TTest {
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerX(), is(true));
     }
-
     @Test
     public void whenHasXVerticalWinner() {
         Figure3T[][] table = {
@@ -51,7 +50,6 @@ public class Logic3TTest {
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerX(), is(true));
     }
-
     @Test
     public void whenHasXBackDiagonalWinner() {
         Figure3T[][] table = {
@@ -62,18 +60,16 @@ public class Logic3TTest {
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerX(), is(true));
     }
-
     @Test
     public void whenHasOWinner() {
         Figure3T[][] table = {
-                {new Figure3T(true, false), new Figure3T(), new Figure3T()},
-                {new Figure3T(true, false), new Figure3T(true, false), new Figure3T()},
-                {new Figure3T(true, false), new Figure3T(), new Figure3T(true, false)},
+                {new Figure3T(false, true), new Figure3T(), new Figure3T()},
+                {new Figure3T(false, true), new Figure3T(true, false), new Figure3T()},
+                {new Figure3T(false, true), new Figure3T(), new Figure3T(true, false)},
         };
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerO(), is(true));
     }
-
     @Test
     public void whenHasGas() {
         Figure3T[][] table = {
