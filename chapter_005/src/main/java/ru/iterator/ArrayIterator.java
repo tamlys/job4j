@@ -1,5 +1,7 @@
 package ru.iterator;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * ArrayIterator
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
@@ -26,9 +28,12 @@ public class ArrayIterator implements Iterator<Integer> {
      */
     @Override
     public Integer next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
         int element = value[row][col];
         col++;
-        while (row < value.length && col >= value[row].length) {
+        if (col >= value[row].length) {
             col = 0;
             row++;
         }
