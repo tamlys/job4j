@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.iterator.EvenIterator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

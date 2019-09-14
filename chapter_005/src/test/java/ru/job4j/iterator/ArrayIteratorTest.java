@@ -1,7 +1,6 @@
 package ru.job4j.iterator;
 import org.junit.Before;
 import org.junit.Test;
-import ru.iterator.ArrayIterator;
 import java.util.Iterator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
