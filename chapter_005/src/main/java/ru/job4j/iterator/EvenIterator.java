@@ -15,7 +15,7 @@ public class EvenIterator implements Iterator<Integer> {
     /**
      * Position - каретка
      */
-    private int position = 0 ;
+    private int position = 0;
 
     public EvenIterator(final int[] value) {
         this.value = value;
