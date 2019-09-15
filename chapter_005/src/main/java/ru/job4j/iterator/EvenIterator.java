@@ -15,11 +15,7 @@ public class EvenIterator implements Iterator<Integer> {
     /**
      * Position - каретка
      */
-    private int position = -1;
-    /**
-     * nextStep - определяет, вызывался ли метод next. При многократном использовании hasNext, не сдвигает каретку
-     */
-    private boolean nextStep = false;
+    private int position = 0 ;
 
     public EvenIterator(final int[] value) {
         this.value = value;
@@ -30,18 +26,13 @@ public class EvenIterator implements Iterator<Integer> {
      */
     @Override
     public boolean hasNext() {
-        boolean result = false;
-        for (int i = position + 1; i < value.length; i++) {
-            if (value[i] % 2 == 0) {
-                result = true;
-                if (nextStep) {
-                    position = i;
-                    nextStep = false;
-                }
+        while (position < value.length) {
+            if (value[position] % 2 == 0) {
                 break;
             }
+            position++;
         }
-        return result;
+        return position < value.length;
     }
     /**
      * Метод next
@@ -49,11 +40,9 @@ public class EvenIterator implements Iterator<Integer> {
      */
     @Override
     public Integer next() {
-        nextStep = true;
         if (!hasNext()) {
-            position++;
             throw new NoSuchElementException();
         }
-        return value[position];
+        return value[position++];
     }
 }
