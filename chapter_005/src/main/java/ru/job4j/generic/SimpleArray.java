@@ -13,17 +13,13 @@ public class SimpleArray<T> implements Iterable<T> {
      * values - массив элементов
      */
     private final Object[] values;
-    /**
-     * position - позиция
-     */
-    private int position;
-
+    private int count;
     /**
      * Конструктор SimpleArray
-     * @param count количество элементов массива
+     * @param elem количество элементов массива
      */
-    public SimpleArray(int count) {
-        this.values = new Object[count];
+    public SimpleArray(int elem) {
+        this.values = new Object[elem];
     }
 
     /**
@@ -37,7 +33,7 @@ public class SimpleArray<T> implements Iterable<T> {
 
             @Override
             public boolean hasNext() {
-                return index < values.length;
+                return index < count;
             }
 
             @Override
@@ -55,10 +51,10 @@ public class SimpleArray<T> implements Iterable<T> {
      * @param model элемент
      */
     public void add(T model) {
-        if (position > values.length - 1) {
+        if (count > values.length - 1) {
             throw new NoSuchElementException();
         }
-        values[position++] = model;
+        values[count++] = model;
     }
 
     /**
@@ -67,7 +63,7 @@ public class SimpleArray<T> implements Iterable<T> {
      * @param model элемент
      */
     public void set(int index, T model) {
-        if (index > values.length - 1) {
+        if (index > count) {
             throw new NoSuchElementException();
         }
         values[index] = model;
@@ -78,7 +74,7 @@ public class SimpleArray<T> implements Iterable<T> {
      * @param index индекс
      */
     public void remove(int index) {
-        if (index > values.length - 1) {
+        if (index > count) {
             throw new NoSuchElementException();
         }
         for (int i = index; i < values.length - 1; i++) {
@@ -92,7 +88,7 @@ public class SimpleArray<T> implements Iterable<T> {
      * @return элемент
      */
     public T get(int index) {
-        if (index > values.length - 1) {
+        if (index > count) {
             throw new NoSuchElementException();
         }
         return (T) values[index];
