@@ -39,6 +39,7 @@ public class AbstractStore<T extends Base> implements Store<T> {
         for (T value : values) {
             if (value.getId().equals(id)) {
                 result = index;
+                break;
             }
             index++;
         }
@@ -92,10 +93,6 @@ public class AbstractStore<T extends Base> implements Store<T> {
      * @return значение найденного элемента по Id
      */
     public T findById(String id) {
-        T result = null;
-        if (findIndexById(id) != -1) {
-            result = values.get(findIndexById(id));
-        }
-        return result;
+        return values.get(findIndexById(id));
     }
 }
