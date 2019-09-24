@@ -20,26 +20,26 @@ public class StoreTest {
         userStore.add(user2);
         User searchUser = userStore.findById("userOne");
         assertThat(userStore.getValues().get(0), is(searchUser));
-        userStore.delete("userTwo");
-        assertThat(userStore.getValues().get(1), is(user2));
+        userStore.delete("userOne");
+        assertThat(userStore.getValues().get(0), is(user2));
         User replaceUser = new User("userThree");
-        userStore.replace("userOne", replaceUser);
+        userStore.replace("userTwo", replaceUser);
         assertThat(userStore.getValues().get(0).getId(), is("userThree"));
     }
 
     @Test
     public void whenStoreRoleThenResult() {
-        RoleStore roleStore = new RoleStore(new SimpleArray<Role>(2));
+        RoleStore roleStore = new RoleStore(new SimpleArray <Role>(2));
         Role role1 = new Role("roleOne");
         Role role2 = new Role("roleTwo");
         roleStore.add(role1);
         roleStore.add(role2);
         Role searchRole = roleStore.findById("roleOne");
         assertThat(roleStore.getValues().get(0), is(searchRole));
-        roleStore.delete("roleTwo");
-        assertThat(roleStore.getValues().get(1), is(role2));
+        roleStore.delete("roleOne");
+        assertThat(roleStore.getValues().get(0), is(role2));
         Role replaceRole = new Role("roleThree");
-        roleStore.replace("roleOne", replaceRole);
+        roleStore.replace("roleTwo", replaceRole);
         assertThat(roleStore.getValues().get(0).getId(), is("roleThree"));
     }
 }

@@ -64,8 +64,9 @@ public class AbstractStore<T extends Base> implements Store<T> {
      */
     public boolean replace(String id, T model) {
         boolean result = false;
-        if (findIndexById(id) != -1) {
-            values.set(findIndexById(id), model);
+        int index = findIndexById(id);
+        if (index != -1) {
+            values.set(index, model);
             result = true;
         }
         return result;
@@ -79,8 +80,9 @@ public class AbstractStore<T extends Base> implements Store<T> {
      */
      public boolean delete(String id) {
         boolean result = false;
-        if (findIndexById(id) != -1) {
-            values.remove(findIndexById(id));
+        int index = findIndexById(id);
+        if (index != -1) {
+            values.remove(index);
             result = true;
         }
         return result;
@@ -93,6 +95,11 @@ public class AbstractStore<T extends Base> implements Store<T> {
      * @return значение найденного элемента по Id
      */
     public T findById(String id) {
-        return values.get(findIndexById(id));
+        T result = null;
+        int index = findIndexById(id);
+        if (index != -1) {
+            result = values.get(index);
+        }
+        return result;
     }
 }
