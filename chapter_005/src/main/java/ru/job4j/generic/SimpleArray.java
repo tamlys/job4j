@@ -77,9 +77,9 @@ public class SimpleArray<T> implements Iterable<T> {
         if (index > count) {
             throw new NoSuchElementException();
         }
-        for (int i = index; i < values.length - 1; i++) {
-            values[i] = values[i + 1];
-        }
+        values[index] = null;
+        System.arraycopy(this.values, index + 1, this.values, index, values.length - 1 - index);
+        this.count--;
     }
 
     /**
