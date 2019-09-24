@@ -29,7 +29,7 @@ public class StoreTest {
 
     @Test
     public void whenStoreRoleThenResult() {
-        RoleStore roleStore = new RoleStore(new SimpleArray <Role>(2));
+        RoleStore roleStore = new RoleStore(new SimpleArray<Role>(2));
         Role role1 = new Role("roleOne");
         Role role2 = new Role("roleTwo");
         roleStore.add(role1);
