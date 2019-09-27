@@ -27,4 +27,19 @@ public class SimpleStack<T> {
     public void push(T value) {
         simpleArrayList.add(value);
     }
+    /**
+     * Метод size
+     * @return возвращает размер списка
+     */
+    public int size() {
+        return simpleArrayList.getSize();
+    }
+    /**
+     * Метод isEmpty
+     * @return true, если список пуст
+     */
+    public boolean isEmpty() {
+        return this.size() == 0;
+    }
+
 }
