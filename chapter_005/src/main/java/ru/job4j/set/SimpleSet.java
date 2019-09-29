@@ -27,6 +27,18 @@ public class SimpleSet<E> implements Iterable<E> {
      * @param e элемент
      */
     public void add(E e) {
+        if (!isDublicate(e)) {
+            dynamicContainer.add(e);
+        }
+    }
+
+    /**
+     * Метод isDublicate
+     * Проверяет, является ли добавляемый элемент дубликатом
+     * @param e элемент
+     * @return tru, если дубликат, иначе false
+     */
+    public boolean isDublicate(E e) {
         boolean dublicate = false;
         for (E value : dynamicContainer) {
             if (value.equals(e)) {
@@ -34,8 +46,6 @@ public class SimpleSet<E> implements Iterable<E> {
                 break;
             }
         }
-        if (!dublicate) {
-            dynamicContainer.add(e);
-        }
+        return dublicate;
     }
 }
