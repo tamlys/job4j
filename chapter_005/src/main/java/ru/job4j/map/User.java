@@ -50,7 +50,18 @@ public class User {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name, children, birthday);
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        User user = (User) o;
+        return children == user.children
+        && Objects.equals(name, user.name)
+        && Objects.equals(birthday, user.birthday);
     }
 }
