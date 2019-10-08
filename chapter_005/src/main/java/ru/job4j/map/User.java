@@ -1,6 +1,8 @@
 package ru.job4j.map;
 
 import java.util.Calendar;
+import java.util.Objects;
+
 /**
  * User
  * @author Sachenkov Maxim (oqiwhite1996@gmail.com)
@@ -45,5 +47,10 @@ public class User {
     @Override
     public String toString() {
         return "Name = " + name + " | " + "Children = " + children + " | " + "Birthday = " + birthday;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
     }
 }
